@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loginSignUp.css">
+    <script>
+        window.onload = function() {
+          // Get the query string from the URL
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+    
+          // Check if there's an error parameter and show the appropriate message
+          if (urlParams.has('signUp_error')) {
+            const error = urlParams.get('signUp_error');
+            
+            switch (error) {
+              case 'ExistingUsername':
+                alert('Username already exists. try again.');
+                break;
+            }
+          }
+        };
+      </script>
+</head>
+<body>
+    <div class="general_block">
+        <h1 class="date">To-Do App</h1>
+        <div class="form_block">
+            <form action="/ejs" method="post">
+                <div id="form">
+                    <input type="text" placeholder="username" class="custom-checkbox login_text" name="signUp_username">
+                    <input type="password" placeholder="password" class="custom-checkbox login_text" name="signUp_password">
+
+                    <button type="submit" >Sign-Up</button>
+                </div>
+                <div class="login_foot">
+                    <p>Already have an account, click <a href="/getLogin">here</a> to login</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
